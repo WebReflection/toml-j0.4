@@ -10,7 +10,8 @@ Expression
     / KeyValue
 
 Newline                                         "Newline"
-    = "\n" / "\r\n"
+    = "\n"
+    / "\r\n"
 
 Whitespace                                      "Whitespace"
     = [ \t]
@@ -105,7 +106,7 @@ MultilineBasicString
 
 MultilineBasicText
     = MultilineBasicCharacter
-    / Backslash Newline
+    / Backslash Newline ( Whitespace / Newline )*
     / Newline
 
 MultilineBasicCharacter
@@ -122,7 +123,7 @@ MultilineLiteralText
     = !"'''" MultilineLiteralCharacter
     / Newline
 
-MultilineLiteralCharacter                       "NormalCharacter"
+MultilineLiteralCharacter                       "AnyCharacter"
     = !Newline [^\x00-\x08\x0A-\x1F]
 
 Boolean

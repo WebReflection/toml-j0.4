@@ -302,16 +302,13 @@ MultilineBasicString
       {
         return {
           type: 'String',
-          value: chars.join('').replace(/\\\r?\n(?:\r?\n|[ \t])*/g, '')
+          value: chars.join('')
         };
       }
 
 MultilineBasicText
     = MultilineBasicCharacter
-    / Backslash Newline
-      {
-        return text();
-      }
+    / Backslash Newline ( Whitespace / Newline )* { return ''; }
     / Newline
 
 MultilineBasicCharacter
