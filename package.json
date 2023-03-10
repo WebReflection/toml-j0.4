@@ -15,7 +15,8 @@
     "README.md",
     "dist/toml-browser.js",
     "lib",
-    "toml.js"
+    "toml.js",
+    "toml.d.ts"
   ],
   "keywords": [
     "toml",
