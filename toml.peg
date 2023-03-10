@@ -137,7 +137,7 @@ Fraction
     = "." Digit ( "_"? Digit )*
 
 Exponent
-    = ( "e" / "E" ) Integer
+    = ( "e" / "E" ) Sign? IntDigits
 
 Integer
     = Sign? IntDigits
@@ -147,11 +147,7 @@ Sign
     / "-"
 
 IntDigits
-    = Digit_1to9 ( "_"? Digit )+
-    / Digit
-
-Digit_1to9
-    = [1-9]
+    = Digit ( "_"? Digit )*
 
 Digit
     = [0-9]

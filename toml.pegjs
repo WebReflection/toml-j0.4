@@ -375,15 +375,18 @@ Fraction
     = "." Digit ( "_"? Digit )*
 
 Exponent
-    = ( "e" / "E" ) Integer
+    = ( "e" / "E" ) Sign? IntDigits
 
 Integer
     = Sign? IntDigits
       {
+        var s = text();
+        if (/^[-+]?0./.test(s)) {
+          error('integer must not contain leading zeros');
+        }
         // Be careful of JavaScript limits:
         // 1) Number.MAX_SAFE_INTEGER = 9007199254740991
         // 2) Number.MIN_SAFE_INTEGER = -9007199254740991
-        var s = text();
         var number = s.replace(/_/g, '');
         // Check if it is a 64-bit signed integer.
         var invalid = false;
@@ -421,11 +424,7 @@ Sign
     / "-"
 
 IntDigits
-    = Digit_1to9 ( "_"? Digit )+
-    / Digit
-
-Digit_1to9
-    = [1-9]
+    = Digit ( "_"? Digit )*
 
 Digit
     = [0-9]
