@@ -37,10 +37,22 @@ key3 = """\
        fox jumps over \
        the lazy dog.\
        """
+
+key4 = """\
+ \\
+ \\\
+       """
 -----------------------------%
 str1: The quick brown fox jumps over the lazy dog.
 str2: The quick brown fox jumps over the lazy dog.
 key3: The quick brown fox jumps over the lazy dog.
+key4: "\\\n \\"
+-----------------------------------------------------------%
+a = """"x""x"""
+b = ''''x''x'''
+-----------------------------%
+a: '"x""x'
+b: "'x''x"
 -----------------------------------------------------------%
 points = [ { "x" = 1, y = '2', z = 3 },
            { "x" = 7, y = '8', z = 9 },
