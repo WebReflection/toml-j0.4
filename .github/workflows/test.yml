@@ -1,0 +1,40 @@
+# https://github.com/actions/cache
+# https://github.com/actions/checkout
+# https://github.com/actions/setup-node/
+# https://github.com/ncipollo/release-action
+# https://docs.github.com/actions/using-workflows
+# https://docs.github.com/actions/learn-github-actions/contexts
+# https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: GitHub Continuous Integration
+
+on: [push, pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.job }}
+  cancel-in-progress: true
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['0.10.x', '5.x', 'lts/*', '*']
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm i  # TODO: npm ci for newer npm
+      - run: npm run build --if-present
+      - run: npm test

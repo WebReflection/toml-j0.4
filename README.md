@@ -1,6 +1,6 @@
 # TOML-j0.4
 
-[![Build Status](https://travis-ci.org/jakwings/toml-j0.4.svg)](https://travis-ci.org/jakwings/toml-j0.4)
+[![Build Status](https://github.com/jakwings/toml-j0.4/actions/workflows/test.yml/badge.svg)](https://github.com/jakwings/toml-j0.4/actions/workflows/test.yml)
 [![NPM version](https://badge.fury.io/js/toml-j0.4.svg)](http://badge.fury.io/js/toml-j0.4)
 
 As its name *TOML-j0.4* says, this is a [TOML] v[0.4.0] compliant parser built
