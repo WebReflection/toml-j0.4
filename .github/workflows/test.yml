@@ -22,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: ['0.10.x', '5.x', 'lts/*', '*']
+        node-version: ['lts/*', '*']
 
     steps:
       - name: Clone repository

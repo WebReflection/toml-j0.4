@@ -1,6 +1,6 @@
 var fs = require('fs');
 var should = require('should');
-var toml = require(__dirname + '/..');
+var toml = require(__dirname + '/../cjs/toml.js');;
 var testDir = __dirname + '/fixtures';
 var readline = require('readline');
 

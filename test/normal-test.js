@@ -1,7 +1,7 @@
 'use strict';
 
 var should = require('should');
-var toml = require(__dirname + '/..');
+var toml = require(__dirname + '/../cjs/toml.js');
 
 var stringify = JSON.stringify;
 var typeRegexp = /^(?:String|Object|Number|Boolean|Array|Date)$/;

@@ -1,23 +1,28 @@
 {
-  "name": "toml-j0.4",
+  "name": "@webreflection/toml-j0.4",
   "version": "1.1.2",
   "description": "A parser only compliant with TOML v0.4.0",
-  "main": "toml.js",
-  "types": "toml.d.ts",
+  "type": "module",
+  "module": "./toml.js",
+  "unpkg": "./toml.js",
+  "jsdelivr": "./toml.js",
+  "browser": "./toml.js",
+  "main": "./cjs/toml.js",
+  "types": "./toml.d.ts",
+  "exports": {
+    ".": {
+        "types": "./toml.d.ts",
+        "import": "./lib/toml.js",
+        "default": "./cjs/toml.js"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "test": "mocha --bail --reporter spec test/*.js",
-    "build": "node build.js",
-    "benchmark": "node benchmark.js",
-    "prepublish": "node build.js"
+    "build": "node build.cjs && ascjs ./lib ./cjs && rollup --config rollup.config.js",
+    "benchmark": "node benchmark.cjs",
+    "prepublish": "node build.cjs"
   },
-  "files": [
-    "LICENSE",
-    "README.md",
-    "dist/toml-browser.js",
-    "lib",
-    "toml.js",
-    "toml.d.ts"
-  ],
   "keywords": [
     "toml",
     "parser",
@@ -39,14 +44,16 @@
   },
   "homepage": "https://github.com/jakwings/toml-j0.4",
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@rollup/plugin-terser": "^0.4.3",
     "ansi": "0.3.0",
+    "ascjs": "^6.0.2",
     "benchmark": "~2.1.4",
-    "browserify": "~14.4.0",
     "js-yaml": "~3.9.0",
     "mocha": "~3.4.2",
     "pegjs": "0.10.0",
+    "rollup": "^3.29.1",
     "should": "~11.2.1",
-    "toml": "~2.3.2",
-    "uglify-js": "~3.0.25"
+    "toml": "~2.3.2"
   }
 }

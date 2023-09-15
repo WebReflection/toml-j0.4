@@ -1,0 +1,8 @@
+.DS_Store
+.github/
+test/
+benchmark.*
+build.*
+rollup.config.*
+toml.peg
+toml.pegjs
