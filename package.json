@@ -31,18 +31,13 @@
   "author": "Jak Wings <jakwings@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jakwings/toml-j0.4.git"
+    "url": "git+https://github.com/WebReflection/toml-j0.4.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/jakwings/toml-j0.4/blob/master/LICENSE"
-    }
-  ],
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jakwings/toml-j0.4/issues"
+    "url": "https://github.com/WebReflection/toml-j0.4/issues"
   },
-  "homepage": "https://github.com/jakwings/toml-j0.4",
+  "homepage": "https://github.com/WebReflection/toml-j0.4",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.1",
     "@rollup/plugin-terser": "^0.4.3",
